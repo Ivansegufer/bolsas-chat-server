@@ -9,10 +9,12 @@ services:
       - 3300:3300
     environment: 
       PORT: ${PORT}
+      KEY: ${KEY}
+      CONNECTION_STRING: ${CONNECTION_STRING}
     links: 
       - mongo
-    volumes:
-      - .:/app
+    volumes: 
+      - ./src/:/app/src/
   mongo:
     container_name: mongodb
     image: mongo

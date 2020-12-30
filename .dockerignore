@@ -2,5 +2,6 @@ Dockerfile
 readme.md
 node_modules
 package-lock.json
+tsconfig.json
 docker-compose.yml
-src
+app

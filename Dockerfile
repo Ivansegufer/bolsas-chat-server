@@ -13,9 +13,8 @@ COPY . /app
 
 #Scripts a ejecutar.
 RUN npm install
-RUN npm i -g typescript
-RUN tsc --build
 CMD ["npm", "run", "dev"]
+
 
 #Exponer esta imágen en un puerto dentro del contenedor.
 EXPOSE 3300
