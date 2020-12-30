@@ -1,0 +1,9 @@
+#dependecies
+/node_modules
+/package-lock.json
+
+#source-javascript
+/src
+
+#enviroment-docker
+.env
