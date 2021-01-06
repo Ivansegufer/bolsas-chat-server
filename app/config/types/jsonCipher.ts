@@ -4,5 +4,5 @@ export type cipher = Crypto.lib.CipherParams;
 
 export interface Password {
     iv: string,
-    encryptedData: string
+    data: string
 }

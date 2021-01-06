@@ -6,7 +6,7 @@ const JsonFormatter = {
     stringify: function(cipherParams: cipher) {
         const jsonObj: Password = {
             iv: '',
-            encryptedData: cipherParams.ciphertext.toString(Crypto.enc.Base64)
+            data: cipherParams.ciphertext.toString(Crypto.enc.Base64)
         }
 
         if(cipherParams.iv) {
@@ -20,7 +20,7 @@ const JsonFormatter = {
         const jsonObj = <Password>JSON.parse(jsonStr);
 
         const cipherParams = Crypto.lib.CipherParams.create({
-            ciphertext: Crypto.enc.Base64.parse(jsonObj.encryptedData)
+            ciphertext: Crypto.enc.Base64.parse(jsonObj.data)
         });
 
         if(jsonObj.iv) {

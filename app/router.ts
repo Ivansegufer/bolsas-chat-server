@@ -9,10 +9,10 @@ router.use(logger);
 
 router
     .route('/login')
-        .get(login);
+        .post(login);
 
 router
     .route('/register')
-        .get(register);
+        .post(register);
 
 export default router;
