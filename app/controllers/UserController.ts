@@ -7,13 +7,24 @@ class UserController {
 
     static addUser(user: IUserBody): number {
         const db = ConnectionDB.getInstance();
-        const userModel = new db.models.User(user);        
+        const userModel = new db.models.User(user);
+        let status: number = STATUS.OK;        
         userModel.save((err) => {
             if(err) {
-                return STATUS.ERROR_SERVIDOR;
+                status = STATUS.ERROR_SERVIDOR;
             }
         });
-        return STATUS.OK;
+        return status;
+    }
+
+    static async findUser(data: string, query: string) {
+        const db = ConnectionDB.getInstance();
+        let pass: string = '';
+        return await new Promise<string>((resolve, reject) => {
+            db.models.User.find({[query]: data}, (err, result) => {
+                resolve(result[0].password);
+            });
+        });
     }
 }
 

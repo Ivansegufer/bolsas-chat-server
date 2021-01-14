@@ -27,10 +27,10 @@ class ConnectionDB {
     }
 
     static getInstance(): ConnectionDB {
-        if(this._connectionDB) {
-            return this._connectionDB;
+        if(!this._connectionDB) {
+            this._connectionDB = new ConnectionDB();
         }
-        return new ConnectionDB();
+        return this._connectionDB;
     }
 
     private open() {

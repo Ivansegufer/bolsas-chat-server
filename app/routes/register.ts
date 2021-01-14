@@ -4,10 +4,10 @@ import STATUS from '../utils/STATUS';
 import { RequestParam, ResponseParam } from '../utils/types/handlerTypes';
 import { IUserBody } from './interfaces/JsonBody';
 
-const register = (req: RequestParam, res: ResponseParam): void => {
+const register = async (req: RequestParam, res: ResponseParam) => {
     try {
         const user = <IUserBody>req.body;
-        user.password = encrypt(user.password);
+        user.password = await encrypt(user.password);
         const status = UserController.addUser(user);
         
         switch(status) {
