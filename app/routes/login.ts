@@ -21,7 +21,7 @@ const login = async (req: RequestParam, res: ResponseParam) => {
             expiresIn: 60 * 60 * 24 //Expira en 24 horas
         });
 
-        res.end({
+        res.status(STATUS.OK).json({
             username: tokenData.username,
             token: token
         });

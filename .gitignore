@@ -7,3 +7,7 @@
 
 #enviroment-docker
 .env
+
+#tests
+/test/node_modules
+/test/package-lock.json

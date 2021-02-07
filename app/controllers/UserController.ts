@@ -1,4 +1,4 @@
-import ConnectionDB from '../db/Connection';
+import ConnectionDB from '../db/connection';
 import { IUserBody } from '../routes/interfaces/JsonBody';
 import STATUS from '../utils/STATUS';
 
