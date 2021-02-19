@@ -1,6 +1,6 @@
-import mongoose, { Connection, Model } from 'mongoose';
+import mongoose, { Connection } from 'mongoose';
 import User from '../models/User';
-import IModels from '../utils/models';
+import IModels from '../lib/Models';
 
 class ConnectionDB {
     private _connection: Connection | null = null;
@@ -21,7 +21,7 @@ class ConnectionDB {
         this._connectionString = <string>process.env.CONNECTION_STRING; 
         this._models = {
             User: new User().model
-            //Instanciamos más modelos cuando los tengamos...
+            //Here can put more models when we got them
         }
         this.open();
     }
