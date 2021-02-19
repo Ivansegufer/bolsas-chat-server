@@ -7,7 +7,6 @@ export interface IUserBody {
     birthday: Date,
 }
 export interface IUserLogin {
-    email: string,
-    nickname: string,
+    username: string, 
     password: string
 }

@@ -47,3 +47,9 @@ export const userCreated: IJsonResponse = {
     status: 'Created',
     response: 'The user has been created'
 }
+
+export const userAlreadyExist: IJsonResponse = {
+    key: STATUS.BAD_REQUEST,
+    status: 'Bad request',
+    response: 'The user already exist'
+}

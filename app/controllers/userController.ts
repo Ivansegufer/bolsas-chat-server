@@ -18,18 +18,12 @@ export const login = async (req: RequestParam, res: ResponseParam) => {
         else {
             const response = <IJsonResponse>result;
             res.status(response.key)
-                .json({
-                    status: response.status,
-                    response: response.response
-                })
+                .json({ ...response, key: Date.now() });
         }
     } catch(error) {
         console.log('Error bad request');
         res.status(badLogin.key)
-            .json({
-                status: badLogin.status,
-                response: badLogin.response
-            });
+            .json({ ...badLogin, key: Date.now() });
     } finally { 
         res.end();
     }
@@ -42,17 +36,11 @@ export const register = async (req: RequestParam, res: ResponseParam) => {
         user = <IUserBody>req.body;
         const result = await UserManager.registerUser(user);
         res.status(result.key)
-            .json({
-                status: result.status,
-                response: result.response
-            })
+            .json({ ...result, key: Date.now() });
     } catch(error) {
         console.log('Error bad request');
         res.status(badLogin.key)
-            .json({
-                status: badLogin.status,
-                response: badLogin.response
-            });
+            .json({ ...badLogin, key: Date.now() });
     } finally { 
         res.end();
     }
